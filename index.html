@@ -12,17 +12,31 @@
             font-family: 'Dancing Script', cursive; /* Fun, cursive font */
             text-align: center;
             height: 100%;
-            overflow: hidden;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         h1 {
-            font-size: 6em;
-            height: 10vh;
+            font-size: 6vw;
+            margin-top: 0.5em;
             color: #ff66cc; /* Pink color for the text */
             animation: float 5s ease-in-out infinite;
         }
-        video {
-            height: 75vh;
-            min-width: 720px;
+        .video-container {
+            position: relative;
+            width: 90%;
+            height: 0;
+            padding-bottom: 177.77%; /* for 16:9 aspect ratio change value as per your requirement */
+            overflow: hidden;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
         /* Confetti background effect */
         .confetti {
@@ -52,10 +66,12 @@
 </head>
 <body>
     <h1>Happy Birthday Bitch!</h1>
-    <video controls>
-        <source src="bday.mp4" type="video/mp4">
-        Probier mal nen anderen Browser. Deiner kann das Video hier nicht abspielen -.-
-    </video>
+    <div class="video-container">
+        <video controls>
+            <source src="bday.mp4" type="video/mp4">
+            Probier mal nen anderen Browser. Deiner kann das Video hier nicht abspielen -.-
+        </video>
+    </div>
     <!-- Confetti effect -->
     <script>
 		// Function to generate random numbers within a range
